@@ -174,7 +174,7 @@ class PrintCommands {
     this._commands.clear();
   }
 
-  /// Generats an image from [widget].
+  /// Generates an image from [widget].
   /// Set [Duration] if you are using async widgets or widget that take time to fully build.
   /// logicalSize [Size] is the size of the device the widget is made into.
   /// imageSize [Size] is the size of image generated.
@@ -202,7 +202,14 @@ class PrintCommands {
         child: repaintBoundary,
       ),
       configuration: ViewConfiguration(
-        size: logicalSize,
+        logicalConstraints: BoxConstraints(
+          maxWidth: logicalSize.width,
+          maxHeight: logicalSize.height,
+        ),
+        physicalConstraints: BoxConstraints(
+          maxWidth: imageSize.width,
+          maxHeight: imageSize.height,
+        ),
         devicePixelRatio: 1.0,
       ),
     );
