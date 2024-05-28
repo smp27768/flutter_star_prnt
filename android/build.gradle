@@ -33,6 +33,7 @@ android {
     defaultConfig {
         minSdkVersion 16
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationID = "io.eddayy.flutter_star_prnt"
     }
     lintOptions {
         disable 'InvalidPackage'
